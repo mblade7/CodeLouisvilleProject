@@ -97,6 +97,18 @@ namespace CodeLouisvilleLibrary
 
             return value;
         }
+        public static double Prompt4Double(string prompt)
+        {
+            double value;
+
+            do
+            {
+                Console.Write(prompt);
+            }
+            while (!double.TryParse(Console.ReadLine(), out value));
+
+            return value;
+        }
 
         public static bool Prompt4YesNo(string prompt)
         {
