@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeLouisvilleProject", "CodeLouisville Project\CodeLouisvilleProject.csproj", "{0047F218-2CF0-4E99-A082-774BF24F1971}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools for Use", "Tools for Use\Tools for Use.csproj", "{CF3E892A-884C-4BD3-8ED7-22FBFE485927}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0047F218-2CF0-4E99-A082-774BF24F1971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0047F218-2CF0-4E99-A082-774BF24F1971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0047F218-2CF0-4E99-A082-774BF24F1971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0047F218-2CF0-4E99-A082-774BF24F1971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF3E892A-884C-4BD3-8ED7-22FBFE485927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF3E892A-884C-4BD3-8ED7-22FBFE485927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF3E892A-884C-4BD3-8ED7-22FBFE485927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF3E892A-884C-4BD3-8ED7-22FBFE485927}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DB51757-6917-4513-9EEB-077C654A52E9}
+	EndGlobalSection
+EndGlobal
