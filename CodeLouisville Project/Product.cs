@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using CodeLouisvilleLibrary.Serialization.Interfaces;
 
-namespace Product
+namespace Products
 {
     public class Product : IEntityWithID
     {
-       public int ID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+       public int ID { get; set;}
        public string Name { get; set;}
        public double RegularPrice { get; set;}
        public double Cost { get; set;}
