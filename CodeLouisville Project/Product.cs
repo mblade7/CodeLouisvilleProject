@@ -9,9 +9,16 @@ namespace Products
 {
     public class Product : IEntityWithID
     {
-       public int ID { get; set;}
-       public string Name { get; set;}
-       public double RegularPrice { get; set;}
-       public double Cost { get; set;}
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public double RegularPrice { get; set; }
+        public double Cost { get; set; }
+        public double MarginPercentage
+        {
+            get
+            {
+                return (double)RegularPrice - (double)Cost / (double)RegularPrice;
+            }
+        }
     }
 }

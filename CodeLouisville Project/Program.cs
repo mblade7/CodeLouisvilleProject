@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CodeLouisvilleLibrary;
-using Compensation_Tracker;
+using UserInterface;
 namespace Project
 {
     class program
