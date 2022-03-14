@@ -12,4 +12,10 @@
     <ProjectReference Include="..\Tools for Use\Tools for Use.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ProductList.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

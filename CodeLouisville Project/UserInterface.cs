@@ -18,8 +18,9 @@ namespace UserInterface
         {
             Menu menu = new Menu();
             menu.AddMenuItem("1", "Check Compensation");
-            menu.AddMenuItem("2", "Add Product");
-            menu.AddMenuItem("3", "Quit");
+            menu.AddMenuItem("2", "Update Product");
+            menu.AddMenuItem("3", "Search for Product");
+            menu.AddMenuItem("4", "Quit");
 
             string userSelection = Prompt4MenuItem("Select an option", menu);
             if (userSelection == "1")
@@ -49,6 +50,10 @@ namespace UserInterface
             {
                 CreateProduct();
             }
+            if (userSelection == "3")
+            {
+                SearchforProduct();
+            }
             return Prompt4YesNo("Would you like to do anything else (Y/N)?");
         }
 
@@ -74,9 +79,39 @@ namespace UserInterface
             Firstproduct.Cost = 1500;
 
             await ProductRepo.SaveAsync(Firstproduct);
+
+            Products.Product Secondproduct = new Products.Product();
+            Secondproduct.ID = 2;
+            Secondproduct.Name = "Almost Time";
+            Secondproduct.RegularPrice = 149.99;
+            Secondproduct.Cost = 90;
+
+            await ProductRepo.SaveAsync(Secondproduct);
+
+            Products.Product Thirdproduct = new Products.Product();
+            Thirdproduct.ID = 3;
+            Thirdproduct.Name = "Shush Now";
+            Thirdproduct.RegularPrice = 7999.99;
+            Thirdproduct.Cost = 5000;
+
+            await ProductRepo.SaveAsync(Thirdproduct);
+
+
+        }
+        static async Task SearchforProduct(string[] args)
+        {
+            await SearchforProduct();
+
+            IEnumerable<Products.Product> items = await ProductRepo.GetAllAsync();
+            foreach (Products.Product product in items)
+                Console.WriteLine(items);
         }
 
-
+        static async Task SearchforProduct()
+        {
+            int userSelection = Prompt4Integer("Which item would you like to look up?");
+            await ProductRepo.GetByID(userSelection);
+        }
     }
 }
 

@@ -9,18 +9,18 @@ namespace CodeLouisvilleLibrary.Serialization
 {
     public class EntitySerializationService<T> where T : IEntityWithID
     {
-        private string FileName;
+        protected string FileName;
 
         public EntitySerializationService(string fileName)
         {
             FileName = fileName;
         }
 
-        public async Task<T> SaveAsync(T item)
+        public virtual async Task<T> SaveAsync(T item)
         {
             List<T> items = new List<T>();
 
-            if (!Directory.Exists(Path.GetDirectoryName(FileName)))
+            if (!string.IsNullOrWhiteSpace(Path.GetDirectoryName(FileName)) && !Directory.Exists(Path.GetDirectoryName(FileName)))
                 Directory.CreateDirectory(Path.GetDirectoryName(FileName));
 
             using (Stream stream = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
@@ -47,7 +47,7 @@ namespace CodeLouisvilleLibrary.Serialization
             return item;
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
             if (File.Exists(FileName))
             {
@@ -61,12 +61,12 @@ namespace CodeLouisvilleLibrary.Serialization
             }
         }
 
-        public async Task DeleteAsync(int ID)
+        public virtual async Task DeleteAsync(int ID)
         {
             await DeleteAsync(await GetByID(ID));
         }
 
-        public async Task DeleteAsync(T item)
+        public virtual async Task DeleteAsync(T item)
         {
             if (item != null)
             {
@@ -93,7 +93,7 @@ namespace CodeLouisvilleLibrary.Serialization
             }
         }
 
-        public async Task<T> GetByID(int ID)
+        public virtual async Task<T> GetByID(int ID)
         {
             var list = await GetAllAsync();
             return list.FirstOrDefault(e => e.ID == ID);

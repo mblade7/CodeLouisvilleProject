@@ -17,7 +17,7 @@ namespace Products
         {
             get
             {
-                return (double)RegularPrice - (double)Cost / (double)RegularPrice;
+                return ((double)RegularPrice - (double)Cost) / (double)RegularPrice;
             }
         }
     }
