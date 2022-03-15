@@ -48,11 +48,11 @@ namespace UserInterface
             }
             if (userSelection == "2")
             {
-                CreateProduct();
+                CreateProduct().Wait();
             }
             if (userSelection == "3")
             {
-                SearchforProduct();
+                SearchforProduct().Wait();
             }
             return Prompt4YesNo("Would you like to do anything else (Y/N)?");
         }
