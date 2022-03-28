@@ -20,5 +20,23 @@ namespace Products
                 return ((double)RegularPrice - (double)Cost) / (double)RegularPrice;
             }
         }
+        public double MaxCommission
+        {
+            get
+            {
+                if (MarginPercentage >= .46)
+                {
+                    return (RegularPrice - Cost) * .16;
+                }
+                else if (MarginPercentage >= .42)
+                {
+                    return (RegularPrice - Cost) * .12;
+                }
+                else
+                {
+                    return (RegularPrice - Cost) * .08;
+                }
+            }
+        }
     }
 }

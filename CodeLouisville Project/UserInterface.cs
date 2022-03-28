@@ -33,17 +33,17 @@ namespace UserInterface
                 if (Margin >= .46)
                 {
                     double Compensation = GrossDollars * .16;
-                    Console.WriteLine($"Your compensation is {Compensation}");
+                    Console.WriteLine($"Your compensation is {Compensation:C}");
                 }
                 else if (Margin >= .42)
                 {
                     double Compensation = GrossDollars * .12;
-                    Console.WriteLine($"Your compensation is {Compensation}");
+                    Console.WriteLine($"Your compensation is {Compensation:C}");
                 }
                 else
                 {
                     double Compensation = GrossDollars * .08;
-                    Console.WriteLine($"Your compensation is {Compensation}");
+                    Console.WriteLine($"Your compensation is {Compensation:C}");
                 }
             }
             if (userSelection == "2")
@@ -54,7 +54,12 @@ namespace UserInterface
             {
                 SearchforProduct().Wait();
             }
+            if (userSelection == "4")
+            {
+                return false;
+            }
             return Prompt4YesNo("Would you like to do anything else (Y/N)?");
+            
         }
 
         private const string C_ProductList = "ProductList.json";
@@ -96,22 +101,41 @@ namespace UserInterface
 
             await ProductRepo.SaveAsync(Thirdproduct);
 
+            Products.Product Fourthproduct = new Products.Product();
+            Fourthproduct.ID = 4;
+            Fourthproduct.Name = "Sandy Eyes";
+            Fourthproduct.RegularPrice = 4999.99;
+            Fourthproduct.Cost = 2300.50;
+
+            await ProductRepo.SaveAsync(Fourthproduct);
+
+            Products.Product Fifthproduct = new Products.Product();
+            Fifthproduct.ID = 5;
+            Fifthproduct.Name = "Comfort Life";
+            Fifthproduct.RegularPrice = 129.99;
+            Fifthproduct.Cost = 49.99;
+
+            await ProductRepo.SaveAsync(Fifthproduct);
 
         }
-        static async Task SearchforProduct(string[] args)
-        {
-            await SearchforProduct();
-
-            IEnumerable<Products.Product> items = await ProductRepo.GetAllAsync();
-            foreach (Products.Product product in items)
-                Console.WriteLine(items);
-        }
-
         static async Task SearchforProduct()
         {
             int userSelection = Prompt4Integer("Which item would you like to look up?");
-            await ProductRepo.GetByID(userSelection);
+            Products.Product selectedProduct = await ProductRepo.GetByID(userSelection);
+            if (selectedProduct != null)
+            {
+                Console.WriteLine($"Name: {selectedProduct.Name}");
+                Console.WriteLine($"Regular Price: {selectedProduct.RegularPrice:C}");
+                Console.WriteLine($"Cost: {selectedProduct.Cost:C}");
+                Console.WriteLine($"Margin: {selectedProduct.MarginPercentage:#0.##%}");
+                Console.WriteLine($"Max Commission: {selectedProduct.MaxCommission:C}");
+            }
+            else
+            {
+                Console.WriteLine("Entry is Invalid!");
+            }
+
+
         }
     }
 }
-
