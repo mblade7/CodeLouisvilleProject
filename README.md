@@ -4,3 +4,4 @@ This project's goal is to allow the user to both figure out their compensation b
 <br/>"Update Product" creates a JSON file in the bin folder and "Search for Product" uses the information in said JSON file to provide information to the user.
 <br/>A LINQ Query is used with the GetByID function inside of "SearchforProduct"
 <br/>The "Check Compensation" option takes information giving by the user to convert both of the information into both a margin percentage as well as compensation. This is also done inside of the product class which can be shown to the user from the "Search for Product" option.
+<br/><br/><b>Important Note: "Update Product" must be used to create the JSON file when first using program in order for "Search for Product" to work.
